@@ -10,9 +10,11 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "nodemon --env-file=.env server.js",
+    "dev": "vite",
     "start": "node server.js",
-    "restore": "node restore.js"
+    "restore": "node restore.js",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
