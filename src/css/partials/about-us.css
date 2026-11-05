@@ -1,0 +1,34 @@
+/* about-us.css */
+
+.owner-reel {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.owner-reel .slideshow {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.owner-reel .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.owner-reel .slide.active {
+    opacity: 1;
+}
+
+.owner-reel .slide img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+    display: block;
+}
