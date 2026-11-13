@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('head') %>
+<body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : 'blue-theme' %>">
+    <header>
+        <img src="../../../public/images/logo_and_banner/logo_no_background.PNG" alt="Logo">
+        <nav>
+            <ul>
+                <!-- Always visible links -->
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu">Menu</a></li>           
+                <li><a href="/aboutUs">About Us</a></li>
+                <li><a href="/login">Login</a></li>
+                <!-- Only visible when logged in -->
+                <% if (typeof isLoggedIn !== 'undefined' && isLoggedIn) { %>
+                    <li><a href="/booking">Booking</a></li>
+                    <li><a href="/contactUs">Contact Us</a></li>
+                    <li><a href="/register/list">All Users</a></li>
+                    <li><a href="/contact/responses">Contact Responses</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } %>
+
+                <!-- Only visible when NOT logged in -->
+                <% if (typeof isLoggedIn === 'undefined' || !isLoggedIn) { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+    <% if (typeof greeting !== 'undefined') { %>
+    <%- greeting %>
+<% } %>
+
+<% 
+const messages = flash();
+const hasMessages = Object.values(messages).some(arr => arr.length > 0);
+%>
+<% if (hasMessages) { %>
+    <div class="flash-messages">
+        <% Object.keys(messages).forEach(type => { %>
+            <% messages[type].forEach(message => { %>
+                <div class="flash <%= type %>">
+                    <%= message %>
+                </div>
+            <% }); %>
+        <% }); %>
+    </div>
+<% } %>
