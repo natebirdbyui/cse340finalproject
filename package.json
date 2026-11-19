@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "connect-pg-simple": "^10.0.0",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "pg": "^8.23.1"
   },
   "type": "module",
   "scripts": {
-  "dev": "nodemon index.js",
-  "start": "node index.js",
-  "restore": "node restore.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "restore": "node restore.js"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +28,10 @@
   },
   "packageManager": "pnpm@12.6.0",
   "devDependencies": {
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/express-session": "^1.19.0",
     "nodemon": "^3.1.14",
-    "ws": "^8.21.3",
-    "vite": "^7.3.5"
+    "vite": "^7.3.5",
+    "ws": "^8.21.3"
   }
-  
 }

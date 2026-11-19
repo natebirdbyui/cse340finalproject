@@ -19,8 +19,14 @@ router.use('/about', (req, res, next) => {
 });
 
 router.use('/booking', (req, res, next) => {
-    res.addStyle('<link rel="stylesheet" href="/css/partials/booking.css">');
+    res.addStyle('<link rel="stylesheet" href="/css/partials/booking.css"> <link rel="stylesheet" href="/css/partials/calendar.css">');
     next();
 });
+
+router.use('/menu', (req, res, next) => {
+    res.addStyle('<link rel="stylesheet" href="/css/partials/menu.css">');
+    next();
+});
+
 
 export default router;
