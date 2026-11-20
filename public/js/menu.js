@@ -1,22 +1,16 @@
 // menu.js
-
-const BASE = import.meta.env.BASE_URL;
-
 let menuData = [];
-
 console.log("menu.js loaded");
 
-
 export async function loadMenu() {
-
     try {
         console.log(
             "Fetching menu from:",
-            `${BASE}data/menu.json`
+            `/data/menu.json`
         );
 
         const res = await fetch(
-            `${BASE}data/menu.json`
+            `/data/menu.json`
         );
 
         if (!res.ok) {

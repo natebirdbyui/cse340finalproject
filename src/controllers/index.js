@@ -1,3 +1,4 @@
+import { getAllMenuItems, getMenuItemsByCategory } from '../models/menuModel.js';
 /**
  * Controller for rendering the home page
  */
@@ -7,10 +8,19 @@ export const homePage = (req, res) => {
     });
 };
 
-export const menuPage = (req, res) => {
-    res.render('menu', {
-        title: 'Menu'
-    });
+export const menuPage = async (req, res, next) => {
+    try {
+        const menuItems = await getAllMenuItems();
+        const menuByCategory = await getMenuItemsByCategory();
+
+        res.render('menu', {
+            title: 'Menu',
+            menuItems,
+            menuByCategory
+        });
+    } catch (err) {
+        next(err);
+    }
 };
 
 export const bookingPage = (req, res) => {
@@ -20,13 +30,13 @@ export const bookingPage = (req, res) => {
 };
 
 export const contactPage = (req, res) => {
-    res.render('contact', {
+    res.render('contact_us', {
         title: 'Contact Us'
     });
 };
 
 export const aboutPage = (req, res) => {
-    res.render('about', {
+    res.render('about_us', {
         title: 'About Us'
     });
 };

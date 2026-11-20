@@ -9,22 +9,21 @@
     <meta name="keywords" content="HIPOC, catering service, event catering, 
     wedding catering, corporate catering, private party catering, customizable menu, delicious cuisine">
     <meta name="author" content="HIPOC">
-    <link rel="stylesheet" href="./css/base.css">
-    <script type="module" src="./js/main.js" defer></script>
+    <link rel="stylesheet" href="/css/base.css">
+    <script type="module" src="/js/main.js" defer></script>
     <%- renderStyles() %>
     <%- renderScripts() %>
-    <% if (NODE_ENV.includes('dev')) { %>
-        <script>
-            // Get the current hostname and port from the browser
+    <% if (typeof NODE_ENV !== 'undefined' && NODE_ENV.includes('dev')) { %>
+    <script>
+        (() => {
             const host = window.location.hostname;
             const currentPort = window.location.port;
-            // Calculate WebSocket port (current port + 1)
-            const wsPort = currentPort ? (parseInt(currentPort) + 1) : 3001;
-            // Create WebSocket connection using dynamic hostname and port
+            const wsPort = currentPort ? (parseInt(currentPort, 10) + 1) : 3001;
             const ws = new WebSocket(`ws://${host}:${wsPort}`);
             ws.onclose = () => {
                 setTimeout(() => location.reload(), 2000);
             };
-        </script>
-    <% } %>
+        })();
+    </script>
+<% } %>
 </head>

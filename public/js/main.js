@@ -1,7 +1,5 @@
 // main.js
 
-import { loadHeader } from "./header.js";
-import { loadFooter } from "./footer.js";
 import { initSidebarMenu } from "./navigation.js";
 
 console.log("main.js loaded:", location.pathname);
@@ -20,13 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (document.querySelector(".hero-banner")) {
         const { loadSlideshow } = await import("./slideshow.js");
         const { loadMealOfTheDay } = await import("./mealOfTheDay.js");
-        const { initCalendar } = await import("./calendar.js");
-        const { loadHolidays } = await import("./holidays.js");
 
         loadSlideshow();
         loadMealOfTheDay();
-        initCalendar();
-        loadHolidays();
     }
 
     // About Us Page

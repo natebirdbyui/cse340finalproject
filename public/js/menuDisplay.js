@@ -3,7 +3,6 @@
 import { addToCart } from "./cart.js";
 import { flyToCart } from "./cartAnimation.js";
 
-const BASE = import.meta.env.BASE_URL;
 console.log("menuDisplay.js loaded");
 
 export function displayMenuItems(menu) {
@@ -17,7 +16,7 @@ export function displayMenuItems(menu) {
 
         // IMAGE
         const img = document.createElement("img");
-        img.src = `${BASE}${item.image}`;
+        img.src = `${item.image}`;
         img.alt = item.name;
 
         // TITLE

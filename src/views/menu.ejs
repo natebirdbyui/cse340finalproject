@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIPOC | Menu</title>
-
-    <meta name="description" content="HIPO Catering is a premier catering service that offers a wide range of delicious and customizable menu options for all occasions.">
-    <meta name="keywords" content="HIPOC, catering service, event catering, wedding catering, corporate catering">
-    <meta name="author" content="HIPOC">
-
-    <link rel="stylesheet" href="../css/base.css">
-    <script type="module" src="../js/main.js" defer></script>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header class="header-create">
-        <!-- header.js injects content -->
-    </header>
+<%- include('partials/head') %>
+<%- include('partials/header') %>
 
     <main class="menu-page">
 
@@ -99,7 +80,58 @@
                     </p>
 
                 </section>
-                <div id="menu-list"></div>
+                <div id="menu-list">
+                    <% if (menuByCategory && Object.keys(menuByCategory).length > 0) { %>
+                        <% Object.entries(menuByCategory).forEach(([category, items]) => { %>
+                            <section class="menu-category" data-category="<%= category %>">
+                                <h2><%= category %></h2>
+
+                                <div class="menu-grid">
+                                    <% items.forEach((item) => { %>
+                                        <article
+                                            class="menu-card"
+                                            data-menu-item-id="<%= item.menu_item_id %>"
+                                            data-name="<%= item.name %>"
+                                            data-category="<%= item.category %>"
+                                            data-servings-per-tray="<%= item.servings_per_tray %>"
+                                            data-price-per-serving="<%= item.price_per_serving %>"
+                                            data-tray-price="<%= item.tray_price %>"
+                                        >
+                                            <img
+                                                src="<%= item.image %>"
+                                                alt="<%= item.name %>"
+                                                loading="lazy"
+                                            >
+
+                                            <div class="menu-card-body">
+                                                <h3><%= item.name %></h3>
+                                                <p class="menu-description"><%= item.description %></p>
+
+                                                <div class="menu-meta">
+                                                    <span>Serves <strong><%= item.servings_per_tray %></strong> per tray</span>
+                                                    <span>$<%= Number(item.price_per_serving).toFixed(2) %> / serving</span>
+                                                    <span><strong>$<%= Number(item.tray_price).toFixed(2) %></strong> / tray</span>
+                                                </div>
+
+                                                <p class="recommended-trays" data-recommended-for="<%= item.menu_item_id %>"></p>
+
+                                                <button
+                                                    type="button"
+                                                    class="add-to-order-btn"
+                                                    data-menu-item-id="<%= item.menu_item_id %>"
+                                                >
+                                                    Add to Order
+                                                </button>
+                                            </div>
+                                        </article>
+                                    <% }) %>
+                                </div>
+                            </section>
+                        <% }) %>
+                    <% } else { %>
+                        <p>No menu items are available right now.</p>
+                    <% } %>
+                </div>
             </section>
         </div>
 
@@ -156,10 +188,4 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer-create">
-        <!-- footer.js injects content -->
-    </footer>
-
-</body>
-</html>
+<%- include("partials/footer") %>

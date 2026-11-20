@@ -1,4 +1,4 @@
-import Router from 'express';
+import {Router} from 'express';
 import { homePage, menuPage, bookingPage, contactPage, aboutPage, cartPage, loginPage, registerPage } from './index.js';
 const router = Router();
 
@@ -6,14 +6,19 @@ const router = Router();
 router.get('/', homePage);
 router.get('/menu', menuPage);
 router.get('/booking', bookingPage);
-router.get('/contact', contactPage);
-router.get('/about', aboutPage);
+router.get('/contact_us', contactPage);
+router.get('/about_us', aboutPage);
 router.get('/cart', cartPage);
 router.get('/login', loginPage);
 router.get('/register', registerPage);
 
 //Add CSS styles to certain pages if needed
-router.use('/about', (req, res, next) => {
+router.use('/', (req, res, next) => {
+    res.addStyle('<link rel="stylesheet" href="/css/partials/hero-banner.css">');
+    next();
+});
+
+router.use('/about_us', (req, res, next) => {
     res.addStyle('<link rel="stylesheet" href="/css/partials/about-us.css">');
     next();
 });
@@ -27,6 +32,18 @@ router.use('/menu', (req, res, next) => {
     res.addStyle('<link rel="stylesheet" href="/css/partials/menu.css">');
     next();
 });
+
+router.use('/contact_us', (req, res, next) => {
+    res.addStyle('<link rel="stylesheet" href="/css/partials/contact-us.css">');
+    next();
+});
+
+router.use('/cart', (req, res, next) => {
+    res.addStyle('<link rel="stylesheet" href="/css/partials/cart-page.css">');
+    next();
+}); 
+
+
 
 
 export default router;
