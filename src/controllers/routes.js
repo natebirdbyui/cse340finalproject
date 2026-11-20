@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { homePage, menuPage, bookingPage, contactPage, aboutPage, cartPage, loginPage, registerPage } from './index.js';
+import { homePage, menuPage, bookingPage, contactPage, aboutPage, cartPage, loginPage, registerPage, userPage } from './index.js';
 import {
     addToCart,
     updateCartItem,
@@ -20,6 +20,7 @@ router.get('/about_us', aboutPage);
 router.get('/cart', cartPage);
 router.get('/login', loginPage);
 router.get('/register', registerPage);
+router.get('/users', userPage)
 
 //Cart and booking routes
 router.get('/api/cart', getCartJson);

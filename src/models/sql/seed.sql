@@ -63,7 +63,7 @@ VALUES
     ('Sides', 'Potato Salad', 12, 2.00, 'Creamy and delicious potato salad, this potato salad has many great seasonings to make your taste buds dance.', '/images/food/potato_salad.jpg'),
     ('Sides', 'Chef Salad', 12, 2.50, 'Crisp and refreshing chef salad, a perfect side dish for any meal.', '/images/food/chef_salad.jpg'),
     ('Sides', 'Pit Style Baked Beans', 20, 2.00, 'Delicious pit style baked beans, you don''t like beans, this will change your mind!', '/images/food/rsz_pit_style_beans.jpg'),
-    ('Sides', 'Texas Twinkie', 12, 1.50, 'Delicious Texas Twinkie, this is a great side dish that will make a meal of itself. We know you can''t have just one bite.', '/images/food/rsz_1texas_twinkie.jpg'),
+    ('Sides', 'Texas Twinkie', 12, 2.50, 'Delicious Texas Twinkie, this is a great side dish that will make a meal of itself. We know you can''t have just one bite.', '/images/food/rsz_1texas_twinkie.jpg'),
     ('Entree', 'Steak and Potatoes', 8, 6.00, 'Juicy steak served with perfectly smoked-baked potatoes, a hearty entree to make the party right.', '/images/food/rsz_steak_and_tators.jpg'),
     ('Entree', 'Tri-Tip Steak and Potatoes', 12, 8.50, 'Juicy tri-tip steak served with perfectly smoked-baked potatoes, a hearty entree that will make your guests talk about it for years.', '/images/food/rsz_steak_n_potatoes.jpg'),
     ('Entree', 'Smoked Bacon Wrapped Chicken Bombs', 8, 7.00, 'Smoked bacon wrapped chicken bombs, a flavorful and indulgent entree option. These bombs are made with tender chicken breasts stuffed with a savory filling, wrapped in crispy bacon, and smoked to perfection. The result is a deliciously smoky and juicy dish that will satisfy any meat lover''s cravings.', '/images/food/rsz_chicken_bombs.jpg')

@@ -30,7 +30,7 @@ export const bookingPage = (req, res) => {
 };
 
 export const contactPage = (req, res) => {
-    res.render('contact_us', {
+    res.render('forms/contact_us/contact_us', {
         title: 'Contact Us'
     });
 };
@@ -58,3 +58,9 @@ export const registerPage = (req, res) => {
         title: 'Register'
     });
 };  
+
+export const userPage = (req, res) => {
+    res.render('users', {
+        title: 'Users'
+    });
+};
