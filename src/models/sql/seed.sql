@@ -1,8 +1,3 @@
--- Example idempotent seed row
-INSERT INTO categories (name)
-VALUES ('General')
-ON CONFLICT (name) DO NOTHING;
-
 CREATE SCHEMA IF NOT EXISTS cse340finalproject;
 
 CREATE TABLE IF NOT EXISTS cse340finalproject.menu_item (

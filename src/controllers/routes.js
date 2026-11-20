@@ -1,5 +1,14 @@
 import {Router} from 'express';
 import { homePage, menuPage, bookingPage, contactPage, aboutPage, cartPage, loginPage, registerPage } from './index.js';
+import {
+    addToCart,
+    updateCartItem,
+    removeCartItem,
+    getCartJson,
+    renderCartPage,
+    renderBookingPage,
+    submitBooking
+} from './orderController.js';
 const router = Router();
 
 //router.get [pages]
@@ -11,6 +20,16 @@ router.get('/about_us', aboutPage);
 router.get('/cart', cartPage);
 router.get('/login', loginPage);
 router.get('/register', registerPage);
+
+//Cart and booking routes
+router.get('/api/cart', getCartJson);
+router.post('/cart/add', addToCart);
+router.post('/cart/update', updateCartItem);
+router.post('/cart/remove', removeCartItem);
+router.get('/cart', renderCartPage);
+
+router.get('/booking', renderBookingPage);
+router.post('/booking', submitBooking);
 
 //Add CSS styles to certain pages if needed
 router.use('/', (req, res, next) => {
